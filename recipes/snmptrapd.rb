@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: snmp
-# Recipe:: snmptrapd 
+# Recipe:: snmptrapd
 #
 # Copyright 2013, Eric G. Wolfe
 #
@@ -19,15 +19,15 @@
 
 node.set['snmp']['snmpd']['trapd_run'] = 'yes'
 
-include_recipe "snmp"
+include_recipe 'snmp'
 
 service node['snmp']['snmptrapd']['service'] do
-  action [ :enable, :start ]
+  action [:enable, :start]
 end
 
-template "/etc/snmp/snmptrapd.conf" do
+template '/etc/snmp/snmptrapd.conf' do
   mode 0644
-  owner "root"
-  group "root"
+  owner 'root'
+  group 'root'
   notifies :restart, "service[#{node['snmp']['snmptrapd']['service']}]"
 end

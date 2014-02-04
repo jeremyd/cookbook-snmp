@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: snmp
-# Recipe:: extendbind 
+# Recipe:: extendbind
 #
 # Copyright 2012, Eric G. Wolfe
 #
@@ -20,19 +20,19 @@
 node.set['snmp']['is_dnsserver'] = true
 
 if node['snmp']['is_dnsserver']
-  include_recipe "perl"
+  include_recipe 'perl'
   %w{ version Getopt::Declare }.each do |pm|
     cpan_module pm do
       force true
     end
   end
 
-  cookbook_file "/usr/local/bin/snmp_rndc_stats.pl" do
+  cookbook_file '/usr/local/bin/snmp_rndc_stats.pl' do
     mode 0755
-    owner "root"
-    group "root"
+    owner 'root'
+    group 'root'
     source node['snmp']['rndc_stats_script']
   end
 end
 
-include_recipe "snmp::default"
+include_recipe 'snmp::default'

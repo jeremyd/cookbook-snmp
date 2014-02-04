@@ -21,22 +21,20 @@ node['snmp']['packages'].each do |snmppkg|
   package snmppkg
 end
 
-case node['platform_family']
-  when "debian"
-    template "/etc/default/snmpd" do
-      mode 0644
-      owner "root"
-      group "root"
-    end
+template '/etc/default/snmpd' do
+  mode 0644
+  owner 'root'
+  group 'root'
+  only_if { node['platform_family'] == 'debian' }
 end
 
 service node['snmp']['service'] do
-  action [ :start, :enable ]
+  action [:start, :enable]
 end
 
-template "/etc/snmp/snmpd.conf" do
+template '/etc/snmp/snmpd.conf' do
   mode 0644
-  owner "root"
-  group "root"
+  owner 'root'
+  group 'root'
   notifies :restart, "service[#{node['snmp']['service']}]"
 end
