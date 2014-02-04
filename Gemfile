@@ -1,6 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'berkshelf'
-gem 'test-kitchen', '~> 1.0.0.alpha'
-gem 'safe_yaml', '= 0.9.1'  
-gem 'kitchen-vagrant', :group => :integration
+gem 'berkshelf', '~> 2.0'
+gem 'chefspec', '~> 3.1'
+gem 'foodcritic', '~> 3.0'
+gem 'rubocop'
+gem 'rubocop-checkstyle_formatter', require: false
+gem 'rainbow', '<= 1.99.1' 
+
+group :integration do
+  gem 'test-kitchen'
+  gem 'kitchen-vagrant'
+end
