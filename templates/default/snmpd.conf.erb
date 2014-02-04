@@ -85,6 +85,19 @@ proc <%= proc_entry %>
 <% unless node['snmp']['process_monitoring']['procfix'].empty? %>
 <% node['snmp']['process_monitoring']['procfix'].each do |procfix_entry| %>
 procfix <%= procfix_entry %>
+# Disk Checks
+#
+# 
+# When compiled with the ucd-snmp/disk module (included by default),
+# the snmp agent can check the amount of available disk space and
+# make sure it is above a set limit.
+
+<% if node['snmp']['include_all_disks'] %>
+includeAllDisks <%= node['snmp']['all_disk_min'] %>
+<% end %>
+<% unless node['snmp']['disks'].empty? %>
+<% node['snmp']['disks'].each do |disk| %>
+disk <%= disk['mount'] %> <%= disk['min'] %>
 <% end %>
 <% end %>
 
@@ -104,6 +117,7 @@ master agentx
 <% end %>
 
 <% if node['snmp']['is_dnsserver'] %>
+
 ###############################################################################
 # Extend Section
 #

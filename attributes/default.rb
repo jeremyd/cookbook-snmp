@@ -48,6 +48,9 @@ default['snmp']['disman_events']['password'] = "disman_password"
 default['snmp']['disman_events']['linkUpDownNotifications'] = "yes"
 default['snmp']['disman_events']['defaultMonitors'] = "yes"
 default['snmp']['disman_events']['monitors'] = Array.new
+default['snmp']['include_all_disks'] = false
+default['snmp']['all_disk_min'] = 100    # 100K
+default['snmp']['disks'] = Array.new
 
 # Debian default file options
 default['snmp']['snmpd']['mibdirs'] = "/usr/share/snmp/mibs"
