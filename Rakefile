@@ -37,8 +37,13 @@ task :deploy do
   sh 'berks apply ci'
 end
 
-# default tasks are quick, commit tests
-task :default => ['foodcritic', 'rubocop', 'chefspec']
+desc 'erubis format check'
+task :erbcheck do
+  sh "erubis -x -T '-' templates/default/*.erb | ruby -c"
+end
 
-# jenkins tasks format for metric tracking
-task :jenkins => ['foodcritic', 'rubocop_checkformat', 'chefspec'] 
+# default tasks are quick, commit tests
+task :default => ['foodcritic', 'rubocop', 'chefspec', 'erbcheck']
+
+# jenkins tasks, use checkformat for tracking results
+task :jenkins => ['foodcritic', 'rubocop_checkformat', 'chefspec', 'erbcheck']
