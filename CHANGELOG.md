@@ -1,4 +1,29 @@
-## snmp v1.0.0
+snmp cookbook CHANGELOG
+=======================
+
+v1.1.0
+
+  @slashterix
+  * Use default level over set #9
+
+  @odyssey4me contributed:
+  * Array `snmp['snmpd']['mibs']` to specify list of MIBs to load #12
+  * Arrays `snmp['process_monitory']['proc']` and `snmp['process_monitoring']['proxfix']
+    for monitoring process table and corrective procfix commands. #13
+  * Attributes `snmp['disman_events']` for SNMP Distributed Management #14
+
+  @sfiggins contributed:
+  * Attributes `snmp['include_all_disks']` (bool),
+    `snmp['all_disk_min']` (String for minimum kilobytes/percent free),
+    and `snmp['disks']` (Hash of mount points and/or minimum thresholds). #17
+
+  * Corrected rubocop warnings.
+  * Add chefspec/Remove minitest
+  * Add basic BATS tests
+  * Add erubis check for templates
+
+v1.0.0
+------
   
   Add snmptrapd recipe, and add RHEL support.
   Template debian files.
@@ -7,13 +32,15 @@
   Check for existence of dmi OHAI attribute, before checking in a condition.
   Correct minitest-spec file for Chef 11.x  
 
-## snmp v0.4.0
+v0.4.0
+------
 
   Add necessary setup for the HP System Management Homepage to be able to poll via @tas50
   Add Suse support via @jackl0phty
   FC043: Prefer new notification syntax: ./recipes/default.rb:38
 
-## snmp v0.3.1
+v0.3.1
+------
 
 Fix Gemfile for Travis.
 
@@ -21,7 +48,8 @@ Foodcritic warnings resolved
 
 * FC007: Ensure recipe dependencies are reflected in cookbook metadata
 
-## snmp v0.3.0
+v0.3.0
+------
 
 Merge pull request #1 from gustavowt/master
 
@@ -38,16 +66,19 @@ Foodcritic warnings resolved
 * FC001: Use strings in preference to symbols to access node attributes
 * FC024: Consider adding platform equivalents
 
-## snmp v0.2.0
+v0.2.0
+------
 
 Refactor SNMP cookbook
 
-## snmp v0.1.0
+v0.1.0
+------
 
 * Add Getopt::Declare dependency
 * Update metadata
 * Update documentation
 
-## snmp v0.0.1
+v0.0.1
+------
 
 Add snmp cookbook.
