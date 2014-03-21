@@ -9,6 +9,6 @@ version          '1.1.0'
 
 recipe 'snmp', 'Installs and configures snmpd'
 
-%w[ubuntu debian redhat centos scientific fedora suse].each do |os|
+%w(ubuntu debian redhat centos scientific fedora suse).each do |os|
   supports os
 end

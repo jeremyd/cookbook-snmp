@@ -21,7 +21,7 @@ node.set['snmp']['is_dnsserver'] = true
 
 if node['snmp']['is_dnsserver']
   include_recipe 'perl'
-  %w{ version Getopt::Declare }.each do |pm|
+  %w(version Getopt::Declare).each do |pm|
     cpan_module pm do
       force true
     end

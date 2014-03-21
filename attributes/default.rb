@@ -19,13 +19,13 @@
 
 case node['platform_family']
 when 'rhel'
-  default['snmp']['packages'] = %w[net-snmp net-snmp-utils]
+  default['snmp']['packages'] = %w(net-snmp net-snmp-utils)
 when 'debian'
-  default['snmp']['packages'] = %w[snmp snmpd]
+  default['snmp']['packages'] = %w(snmp snmpd)
 when 'suse'
-  default['snmp']['packages'] = %w[net-snmp]
+  default['snmp']['packages'] = %w(net-snmp)
 else
-  default['snmp']['packages'] = %w[net-snmp net-snmp-utils]
+  default['snmp']['packages'] = %w(net-snmp net-snmp-utils)
 end
 
 # Same on supported platforms:
