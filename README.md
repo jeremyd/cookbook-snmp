@@ -88,6 +88,11 @@ these following attributes to best suit your own environment.
     the minimum threshold in the form of { :max1 => '12', :max5 => '14', :max15 => '14'}.
     Default is an empty array.
 
+* snmp[:extend_scripts]
+  - An array that specifies extension scripts to the SMP daemon. If set, the template 
+    will place these name => value pairs in the "Extend" section of the snmpd.conf file.
+    The array must be in the format of { 'foo' => '/path/to/foo -arg', 'bar' => '/path/to/bar' }
+
 * snmp['snmpd']['mibdirs']
   - MIB directories.  "/usr/share/snmp/mibs" is the default
 
