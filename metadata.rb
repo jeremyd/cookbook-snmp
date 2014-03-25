@@ -4,8 +4,7 @@ license          'Apache 2.0'
 description      'Installs/Configures snmp on redhat, centos, ubuntu, debian'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 name             'snmp'
-depends          'perl'
-version          '1.1.0'
+version          '2.0.0'
 
 recipe 'snmp', 'Installs and configures snmpd'
 

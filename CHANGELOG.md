@@ -1,7 +1,21 @@
 snmp cookbook CHANGELOG
 =======================
 
+v2.0.0
+------
+
+  @MrMMorris
+  * Add load average checks.
+
+Breaking changes:
+
+  @themoore
+  * Remove hardcoded extend scripts and is_dnsserver boolean.
+  * Remove perl dependency.
+  * Added extend_scripts hash for greater flexibility. # 21
+
 v1.1.0
+------
 
   @slashterix
   * Use default level over set #9

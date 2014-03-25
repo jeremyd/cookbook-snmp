@@ -39,7 +39,6 @@ default['snmp']['syscontact'] = 'Root <root@localhost>'
 default['snmp']['full_systemview'] = false
 default['snmp']['trapcommunity'] = 'public'
 default['snmp']['trapsinks'] = []
-default['snmp']['is_dnsserver'] = false
 default['snmp']['process_monitoring']['proc'] = []
 default['snmp']['process_monitoring']['procfix'] = []
 default['snmp']['disman_events']['enable'] = false
@@ -52,6 +51,7 @@ default['snmp']['include_all_disks'] = false
 default['snmp']['all_disk_min'] = 100    # 100K
 default['snmp']['disks'] = []
 default['snmp']['load_average'] = []
+default['snmp']['extend_scripts'] = {}
 
 # Debian default file options
 default['snmp']['snmpd']['mibdirs'] = '/usr/share/snmp/mibs'
