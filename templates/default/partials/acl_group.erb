@@ -1,0 +1,7 @@
+<% @acls.each do |name, group| %>
+  <% group["groups"].each do |attrs| %>
+    <% attrs["securityModels"].each do |model| %>
+group <%= name %> <%= model %> <%= attrs["securityName"] %>
+    <% end %>
+  <% end %>
+<% end %>

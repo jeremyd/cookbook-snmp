@@ -32,9 +32,11 @@ service node['snmp']['service'] do
   action [:start, :enable]
 end
 
+snmp_db = data_bag_item("snmp", "config") || {}
 template '/etc/snmp/snmpd.conf' do
   mode 0644
   owner 'root'
   group 'root'
+  variables(:acls => snmp_db["acls"])
   notifies :restart, "service[#{node['snmp']['service']}]"
 end

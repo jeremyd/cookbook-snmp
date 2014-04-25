@@ -172,12 +172,73 @@ You can apply these override attributes in a role, or node context.
   }
 ```
 
+#### ACLs via Data Bags
+
+The ACL section of the config here: http://www.cyberciti.biz/nixcraft/linux/docs/uniqlinuxfeatures/mrtg/snmpd.conf.txt
+Can be described in a data bag with the following JSON:
+
+```
+{
+  "id": "config",
+  "acls": {
+    "MyRWGroup": {
+      "groups": [
+        {
+          "securityName": "local",
+          "securityModels": ["v1", "v2c", "usm"]
+        }
+      ],
+      "com2sec": [
+        {
+          "sec_name": "local",
+          "sources": [ "localhost" ],
+          "community": "public"
+        }
+      ],
+      "access": {
+        "context": null,
+        "sec_model": "any",
+        "sec_level": "noauth",
+        "prefix": "exact",
+        "read": "all",
+        "write": "none",
+        "notif": "none"
+      }
+    },
+    "MyROGroup": {
+      "groups": [
+        {
+          "securityName": "mynetwork",
+          "securityModels": ["v1", "v2c"]
+        }
+      ],
+      "com2sec": [
+        {
+          "sec_name": "mynetwork",
+          "sources": [ "192.168.0.0/24" ],
+          "community": "public"
+        }
+      ],
+      "access": {
+        "context": null,
+        "sec_model": "any",
+        "sec_level": "noauth",
+        "prefix": "exact",
+        "read": "all",
+        "write": "all",
+        "notif": "none"
+      }
+    }
+  }
+}
+```
+
 ## ACKNOWLEDGEMENTS
 
 Thanks to Sami Haahtinen <zanaga> on Freenode/#chef for testing,
 and feedback pertinent to the Debian/Ubuntu platforms.
 
-## AUTHOR AND LICENSE
+### Author and License
 
 Author:: Eric G. Wolfe (<wolfe21@marshall.edu>)
 
