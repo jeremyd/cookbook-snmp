@@ -20,7 +20,7 @@
 <% if @acls.empty? %>
 com2sec notConfigUser  default       <%= node['snmp']['community'] %>
 <% else %>
-<%= render 'partials/acl_com2sec.erb', :variables => @acls[:acls] -%>
+<%= render 'partials/acl_com2sec.erb', :variables => @acls -%>
 <% end %>
 
 ####
