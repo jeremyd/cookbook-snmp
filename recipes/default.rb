@@ -33,7 +33,6 @@ service node['snmp']['service'] do
 end
 
 snmp_db = data_bag_item("snmp", "config") || {}
-puts "ACLS: #{snmp_db["acls"]}"
 template '/etc/snmp/snmpd.conf' do
   mode 0644
   owner 'root'
