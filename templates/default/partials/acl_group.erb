@@ -1,5 +1,8 @@
 <% @acls.each do |name, group| %>
+  <% puts "NAME: #{name}, GROUP: #{group.inspect}, #{group["groups"]}" %>
   <% group["groups"].each do |attrs| %>
+    <% puts "ATTRS: #{attrs.inspect}" %>
+    <% puts "ATTRS securityModels: #{attrs["securityModels"].inspect}" %>
     <% attrs["securityModels"].each do |model| %>
 group <%= name %> <%= model %> <%= attrs["securityName"] %>
     <% end %>
