@@ -1,4 +1,4 @@
-<% @acls.each do |name, group| %>
+<% @acls[:acls].each do |name, group| %>
   <% group["com2sec"].each do |attrs| %>
     <% attrs["sources"].each do |source| %>
 com2sec <%= attrs["sec_name"] %> <%= source %> <% attrs["community"] || node["snmp"]["community"] %>
