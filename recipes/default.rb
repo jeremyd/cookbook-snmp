@@ -37,6 +37,6 @@ template '/etc/snmp/snmpd.conf' do
   mode 0644
   owner 'root'
   group 'root'
-  variables(:acls => snmp_db["acls"])
+  variables(:acls => snmp_db)
   notifies :restart, "service[#{node['snmp']['service']}]"
 end
