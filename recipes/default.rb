@@ -32,7 +32,7 @@ service node['snmp']['service'] do
   action [:start, :enable]
 end
 
-snmp_db = data_bag_item("snmp", "config") || {}
+snmp_db = Chef::EncryptedDataBagItem.load("snmp", "config") || {}
 template '/etc/snmp/snmpd.conf' do
   mode 0644
   owner 'root'
